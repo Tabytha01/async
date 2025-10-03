@@ -51,10 +51,18 @@ async function fetchProducts(){
             productData.product .array.forEach(products => {
                 console.log(`product id: ${products.id}`);
                 console.log(`product title: ${products.title}`);
-                console.log(`product price: ${products.price}`);
-
-                
+                console.log(`product price: ${products.price}`);  
             });
+            //Filter out any products that are not available
+            const availableProducts= productData.products.array.filter(products => products.stock > 0);
+            console.log(`available products: ${availableProducts.length}`);
+           // Calculate the total price of all available products.
+           const totalPrice = availableProducts.reduce((totalPrice, product)=> totalPrice + product.price, 0);
+           console.log(`total price of available products: $${totalPrice}`);
+           //running the object that countains available products and totalprice
+           return {availableProducts, totalPrice};
+           
+    
         }
     }
 
