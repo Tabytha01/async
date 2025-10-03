@@ -61,8 +61,6 @@ async function fetchProducts(){
            console.log(`total price of available products: $${totalPrice}`);
            //running the object that countains available products and totalprice
            return {availableProducts, totalPrice};
-           
-    
         }
     }
 
